@@ -1,0 +1,7 @@
+---
+- name: restart telegraf
+  sudo: True
+  monit: 
+    name: telegraf
+    state: restarted
+  ignore_errors: yes

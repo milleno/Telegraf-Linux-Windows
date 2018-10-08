@@ -1,0 +1,50 @@
+---
+# defaults for telegraf debian download
+telegraf_version: 1.8.1
+telegraf_agent_hostname: "{{ ansible_fqdn }}"
+telegraf_agent_version: 1.8.1-1 #1.3.0-1
+telegraf_agent_interval: "10s"
+telegraf_agent_debug: 'false'
+telegraf_agent_round_interval: 'true'
+telegraf_agent_flush_interval: "10s"
+telegraf_agent_flush_jitter: "0s"
+telegraf_agent_collection_jitter: "0s"
+telegraf_agent_metric_batch_size: 1000
+telegraf_agent_metric_buffer_limit: 10000
+telegraf_agent_quiet: 'false'
+telegraf_agent_logfile: ""
+telegraf_agent_omit_hostname: 'false'
+
+telegraf_agent_tags:
+
+discard_output: True
+# defaults values for telegraf windows
+telegraf_win_url: https://dl.influxdata.com/telegraf/releases/telegraf-{{ telegraf_version }}_windows_amd64.zip
+
+telegraf_win_path: C:\telegraf
+telegraf_zip_folder: telegraf
+
+telegraf_debug: "false"
+telegraf_agent_interval: 30s
+telegraf_round_interval: "false"
+telegraf_flush_interval: 30s
+telegraf_flush_jitter: 15s
+
+telegraf_influxdb_urls: 
+  - http://localhost:8086
+telegraf_influxdb_database: telegraf
+telegraf_influxdb_precision: s
+telegraf_influxdb_timeout: 5s
+
+telegraf_inputs: []
+telegraf_outputs:
+  -
+    type: influxdb
+    config:
+      urls: "{{ telegraf_influxdb_urls }}"
+      database: "{{ telegraf_influxdb_database }}"
+      precision: "{{ telegraf_influxdb_precision }}"
+      timeout: "{{ telegraf_influxdb_timeout }}"
+
+telegraf_agent_tags:
+

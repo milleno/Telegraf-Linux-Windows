@@ -1,0 +1,9 @@
+---
+  - name: Telegraf install playbook
+    hosts: "{{ target | default('telegraf', true) }}"
+    become: yes
+    serial: 1
+    gather_facts: yes
+
+    roles:
+      - telegraf

@@ -1,0 +1,11 @@
+---
+- include: setup-linux.yml
+  when: ansible_os_family == 'Debian'
+
+- include: setup-windows.yml
+  when: ansible_os_family == 'Windows'
+
+- include: setup-linux.yml
+  when: ansible_os_family == 'RedHat'
+
+

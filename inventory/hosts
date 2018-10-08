@@ -1,0 +1,10 @@
+[telegraf]
+<IP>
+
+[telegraf:vars]
+ansible_ssh_user=<user>
+ansible_ssh_pass=<senha>
+ansible_ssh_port=5985
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_become=false
